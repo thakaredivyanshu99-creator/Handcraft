@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Handcraft – Chocolate & Cookies, Katol</title>
+  <meta name="description" content="Handmade chocolates, cookies and cupcakes in Katol. Order on WhatsApp. Starting at just ₹10.">
+  <meta name="theme-color" content="#3E1F14">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Mukta:wght@400;600;700&family=Pacifico&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-word" id="loaderWord">Handcraft</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+
+  <!-- Falling sprinkles -->
+  <canvas id="sprinkles" aria-hidden="true"></canvas>
+
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <a href="#home" class="brand" aria-label="Handcraft home">
+      <span class="brand-hat" aria-hidden="true">👨‍🍳</span>
+      <span class="brand-name">Handcraft</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#why">Why Us</a>
+      <a href="#menu">Menu</a>
+      <a href="#quotes">Sweet Words</a>
+      <a href="#chef">Chef</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="basket-btn" id="basketOpen" aria-label="Open basket">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="basket-count" id="basketCount">0</span>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="float f1">🍫</span><span class="float f2">🍪</span><span class="float f3">🧁</span>
+        <span class="float f4">🍫</span><span class="float f5">🍪</span><span class="float f6">🌿</span>
+      </div>
+      <div class="hero-inner">
+        <p class="stamp reveal">Handmade with Love ♥</p>
+        <h1 class="hero-title reveal">
+          <span class="script">Handcraft</span>
+          <span class="hero-sub">Chocolate <em>&amp;</em> Cookies</span>
+        </h1>
+        <p class="hero-tag reveal">Small Bites… Big Happiness.</p>
+        <div class="price-burst reveal" aria-label="Starting price 10 rupees">
+          <small>at just</small>
+          <strong>₹10</strong>
+          <small>Starting Price</small>
+        </div>
+        <div class="hero-cta reveal">
+          <a href="#menu" class="btn btn-primary">See the Menu</a>
+          <a href="#" class="btn btn-ghost" data-wa="Hi Handcraft! I would like to place an order.">Order on WhatsApp</a>
+        </div>
+        <p class="hero-note reveal">🛵 Home delivery in Katol</p>
+      </div>
+      <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0,64 C240,120 480,0 720,48 C960,96 1200,16 1440,64 L1440,120 L0,120 Z"/></svg>
+    </section>
+
+    <!-- Why us -->
+    <section class="section why" id="why">
+      <h2 class="section-title reveal">Why You'll Love Us</h2>
+      <p class="section-sub reveal">Pure ingredients, rich flavours, made with love.</p>
+      <div class="why-grid">
+        <article class="why-card reveal"><span class="why-ico">🔥</span><h3>Freshly Baked</h3><p>Made in small batches so every bite is fresh.</p></article>
+        <article class="why-card reveal"><span class="why-ico">🌿</span><h3>Natural Ingredients</h3><p>Real chocolate, real nuts, real fruit.</p></article>
+        <article class="why-card reveal"><span class="why-ico">🚫</span><h3>No Preservatives</h3><p>Nothing artificial. Just homemade goodness.</p></article>
+        <article class="why-card reveal"><span class="why-ico">🛵</span><h3>Home Delivery</h3><p>Order on WhatsApp and we deliver to your door in Katol.</p></article>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="section menu" id="menu">
+      <h2 class="section-title reveal">Our Menu</h2>
+      <p class="section-sub reveal">Pick your favourites and send the order on WhatsApp.</p>
+      <div class="tabs reveal" id="tabs" role="tablist" aria-label="Menu categories"></div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <!-- Quotes -->
+    <section class="section quotes" id="quotes">
+      <h2 class="section-title light reveal">Sweet Words</h2>
+      <div class="quote-box reveal">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <p class="quote-text" id="quoteText" aria-live="polite"></p>
+        <div class="quote-dots" id="quoteDots"></div>
+      </div>
+    </section>
+
+    <!-- Chef -->
+    <section class="section chef" id="chef">
+      <div class="chef-card reveal">
+        <div class="chef-avatar" aria-hidden="true">👩‍🍳</div>
+        <div>
+          <p class="chef-label">Meet the Chef</p>
+          <h2 class="chef-name">Sonali Gandhe</h2>
+          <p>Every chocolate, cookie and cupcake at Handcraft is made by hand in Sonali's kitchen in Katol. She uses natural ingredients and makes everything fresh to order.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <h2 class="section-title reveal">Order &amp; Contact</h2>
+      <p class="section-sub reveal">DM or WhatsApp us to order.</p>
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <h3>Get in touch</h3>
+          <ul class="contact-list">
+            <li><span>📱</span><div><small>Mobile / WhatsApp (Ruchi)</small><a href="tel:+918329311771" id="phoneLink">8329311771</a></div></li>
+            <li><span>📍</span><div><small>Location</small><strong>Katol</strong></div></li>
+            <li><span>👩‍🍳</span><div><small>Chef</small><strong>Sonali Gandhe</strong></div></li>
+            <li><span>🛵</span><div><small>Delivery</small><strong>Home delivery in Katol</strong></div></li>
+          </ul>
+          <div class="contact-btns">
+            <a href="#" class="btn btn-wa" data-wa="Hi Handcraft! I would like to place an order.">WhatsApp</a>
+            <a href="tel:+918329311771" class="btn btn-ghost-dark">Call Now</a>
+          </div>
+        </div>
+        <div class="map-card reveal">
+          <iframe title="Katol on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Katol,+Maharashtra&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-brand">Handcraft</p>
+    <p>Handmade with love in Katol · Chef Sonali Gandhe</p>
+    <p class="footer-small">© <span id="year"></span> Handcraft Chocolate &amp; Cookies</p>
+  </footer>
+
+  <!-- Basket drawer -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Your basket" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Your Basket</h3>
+      <button class="drawer-close" id="basketClose" aria-label="Close basket">×</button>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-foot">
+      <div class="total-row"><span>Total</span><strong id="basketTotal">₹0</strong></div>
+      <label class="field">
+        <span>Your name</span>
+        <input type="text" id="custName" placeholder="Enter your name" autocomplete="name">
+      </label>
+      <label class="field">
+        <span>Delivery address in Katol</span>
+        <textarea id="custAddress" rows="2" placeholder="House no., area, landmark"></textarea>
+      </label>
+      <button class="btn btn-wa btn-block" id="sendOrder">Order on WhatsApp</button>
+      <button class="link-btn" id="clearBasket">Clear basket</button>
+    </div>
+  </aside>
+
+  <!-- Floating WhatsApp -->
+  <a href="#" class="wa-float" data-wa="Hi Handcraft! I would like to place an order." aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 1.9 6.600L3 29l7.100-2.100a12.800 12.800 0 0 0 5.900 1.500c7 0 12.700-5.600 12.700-12.500S23 3 16 3zm0 23c-1.900 0-3.700-.5-5.300-1.500l-.4-.2-4.200 1.200 1.200-4-.3-.4a10.200 10.200 0 0 1-1.600-5.500C5.400 9.800 10.200 5.200 16 5.200s10.600 4.600 10.600 10.300S21.800 26 16 26zm5.800-7.600c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.600 8.600 0 0 1-4.300-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.500 1.100 2.900 1.200 3.100 2.100 3.300 5.200 4.600c1.900.8 2.700.9 3.600.7.600-.1 1.900-.8 2.200-1.500s.3-1.400.2-1.500-.3-.2-.6-.4z"/></svg>
+  </a>
+
+  <script src="js/data.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
